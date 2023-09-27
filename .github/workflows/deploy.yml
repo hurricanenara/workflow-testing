@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
+        run-name: this is run-name
         run: echo hello
   deploy:
     needs: hello
