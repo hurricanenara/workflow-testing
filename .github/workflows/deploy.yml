@@ -15,3 +15,10 @@ jobs:
     steps:
       - name: Say hello
         run: echo hello
+  deploy:
+    needs: hello
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - name: manual approval
+        echo: approved manually
