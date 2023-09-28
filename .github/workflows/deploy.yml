@@ -16,4 +16,4 @@ jobs:
       - name: Say hello
         run: echo hello
       - name: deps
-        uses: hurricanenara/espresso@v1
+        uses: hurricanenara/espresso@v2
