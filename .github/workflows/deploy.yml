@@ -20,10 +20,8 @@ jobs:
         run: echo hello
       - name: Evaluate aws environment
         run: |
-          if [[ uat == dev ]]; then
-            echo "its dev"
-          else
-            echo "its not dev"
+          if [[ dev == dev ]]; then
+            echo "AWS_ENV=default" >> $GITHUB_ENV
           fi
       - name: Print env
         run: echo ${{ env.AWS_ENV }}
