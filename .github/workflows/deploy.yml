@@ -20,7 +20,7 @@ jobs:
         run: echo hello
       - name: Evaluate aws environment
         run: |
-          if [[ dev == dev ]]; then
+          if [[ uat == dev ]]; then
             echo "its dev"
           else
             echo "its not dev"
