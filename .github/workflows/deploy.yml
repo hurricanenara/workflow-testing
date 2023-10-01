@@ -9,9 +9,19 @@ on:
     branches:
       - main
 
+env:
+  AWS_ENV: something
+
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
         run: echo hello
+      - name: Evaluate aws environment
+        run: |
+          if [[ uat == dev ]]; then
+            echo "AWS_ENV=default" >> $GITHUB_ENV
+          fi
+      - name: Print env
+        run: echo ${{ env.AWS_ENV }}
