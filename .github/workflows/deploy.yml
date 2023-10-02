@@ -13,5 +13,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Say hello
-        run: echo hello
+      - name: Say hello 1
+        run: echo ${{ vars.HELLO }}
+      - name: Say hello 2
+        run: echo ${{ env.HELLO }}
