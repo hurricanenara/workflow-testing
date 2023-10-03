@@ -10,8 +10,22 @@ on:
       - main
 
 jobs:
-  hello:
+  echo-input:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
-      - name: Say hello
-        run: echo hello
+      - uses: actions/github-script@v6
+        env:
+          FIRST_NAME: Mona
+          LAST_NAME: Octocat
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/v2',
+              sha: context.sha
+            })
