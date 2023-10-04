@@ -1,5 +1,4 @@
 const core = require("@actions/core");
-const exec = require("@actions/exec");
 const github = require("@actions/github");
 
 const { GH_AUTH_TOKEN } = process.env;
@@ -35,7 +34,7 @@ function main() {
   }
 
   const versionToRelease = joinVersions(major, minor, patch);
-  console.log("Next version is ", versionToRelease);
+  console.log("Next version is: ", versionToRelease);
 
   core.setOutput("next-tag-version", versionToRelease);
 
