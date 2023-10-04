@@ -1,0 +1,16 @@
+name: "Get incremented version"
+description: "Gets an incremented version based on previous version"
+
+inputs:
+  latest-tag-version:
+    description: "Latest tag"
+    required: false
+  gh_token:
+    required: true
+outputs:
+  next-tag-version:
+    description: "The next version"
+
+runs:
+  using: "node20"
+  main: "main.js"
