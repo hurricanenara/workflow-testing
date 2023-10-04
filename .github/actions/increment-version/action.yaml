@@ -1,0 +1,15 @@
+name: "Get incremented version"
+description: "Gets an incremented version based on previous version"
+
+inputs:
+  testing:
+    description: "testing input"
+    required: false
+    default: "hello world"
+outputs:
+  next-version:
+    description: "The next version"
+
+runs:
+  using: "node18"
+  main: "main.js"
