@@ -2,12 +2,13 @@ name: "Get incremented version"
 description: "Gets an incremented version based on previous version"
 
 inputs:
-  testing:
-    description: "testing input"
+  latest-tag-version:
+    description: "Latest tag"
     required: false
-    default: "hello world"
+  gh_token:
+    required: true
 outputs:
-  next-version:
+  next-tag-version:
     description: "The next version"
 
 runs:

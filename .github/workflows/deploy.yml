@@ -9,11 +9,27 @@ on:
     branches:
       - main
 
+env:
+  LATEST_TAG: ""
+
 jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
+      - name: Get latest tag
+        run: |
+          git fetch -a
+          echo "LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_ENV
+      - name: Output latest tag
+        run: echo ${{ env.LATEST_TAG }}
       - name: Run custom action
+        id: version
         uses: ./.github/actions/increment-version
+        with:
+          latest-tag-version: ${{ env.LATEST_TAG }}
+          gh_token: ${{ secrets.GH_TOKEN }}
+      - name: Output info
+        run: |
+          echo ${{ steps.version.outputs.next-tag-version }}
